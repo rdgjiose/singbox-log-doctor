@@ -1,0 +1,6 @@
++0000 2026-05-09 01:16:08 ERROR router: process DNS packet: unpack request: bad question name: dns: bad rdata
++0000 2026-05-09 01:16:08 ERROR router: process DNS packet: unpack request: bad question name: dns: buffer size too small
++0000 2026-05-09 01:16:21 ERROR endpoint/tailscale[ts-out]: receive ICMP echo reply: read tcp 100.90.158.11:1: i/o timeout
++0000 2026-05-09 01:16:26 ERROR connection: open connection to 142.250.117.101:443 using outbound/tailscale[ts-out]: connect tcp 142.250.117.101:443: connection timed out
++0000 2026-05-09 01:16:37 WARN implicit default HTTP client using default outbound for remote rule-sets is deprecated
++0000 2026-05-09 01:17:00 ERROR endpoint/tailscale[ts-out]: endpoint not connected
