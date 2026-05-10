@@ -1,22 +1,36 @@
 use std::env;
 use std::fs;
+use std::io::{self, Read};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    if args.len() < 2 {
-        eprintln!("Usage: singbox-log-doctor <log-file>");
-        return;
-    }
+    let content = if args.len() >= 2 {
+        let file_path = &args[1];
 
-    let file_path = &args[1];
+        match fs::read_to_string(file_path) {
+            Ok(text) => text,
+            Err(error) => {
+                eprintln!("Failed to read file '{}': {}", file_path, error);
+                return;
+            }
+        }
+    } else {
+        let mut input = String::new();
 
-    let content = match fs::read_to_string(file_path) {
-        Ok(text) => text,
-        Err(error) => {
-            eprintln!("Failed to read file: {}", error);
+        if let Err(error) = io::stdin().read_to_string(&mut input) {
+            eprintln!("Failed to read from stdin: {}", error);
             return;
         }
+
+        if input.trim().is_empty() {
+            eprintln!("Usage:");
+            eprintln!("  singbox-log-doctor <log-file>");
+            eprintln!("  cat <log-file> | singbox-log-doctor");
+            return;
+        }
+
+        input
     };
 
     let mut total_lines = 0;
