@@ -28,6 +28,17 @@ Run the tool with a sample log file:
 
 ```bash
 cargo run -- examples/sample-singbox.log
+```
+Run with stdin:
+
+```bash
+cat examples/sample-singbox.log | cargo run
+```
+On a server, it can be used with Docker logs:
+
+```bash
+docker logs sing-box --since 10m | singbox-log-doctor
+```
 
 
 #Example output:
