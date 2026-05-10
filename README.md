@@ -30,18 +30,14 @@ Run the tool with a sample log file:
 cargo run -- examples/sample-singbox.log
 ```
 Run with stdin:
-
 ```bash
 cat examples/sample-singbox.log | cargo run
 ```
 On a server, it can be used with Docker logs:
-
 ```bash
 docker logs sing-box --since 10m | singbox-log-doctor
 ```
-
-
-#Example output:
+## Example output
 singbox-log-doctor report
 =========================
 Total lines: 6
@@ -59,10 +55,9 @@ Tailscale / ts-out issues:
 Routing issues:
   Google IP through ts-out: 1
 
-#Roadmap
-
-* Support reading logs from stdin
-* Support JSON output
-* Add more routing issue detection rules
-* Add unit tests
-* Build release binaries
+## Roadmap
+- Support reading logs from stdin
+- Support JSON output
+- Add more routing issue detection rules
+- Add unit tests
+- Build release binaries
